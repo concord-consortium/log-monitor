@@ -1,0 +1,50 @@
+{
+  "name": "@concord-consortium/log-monitor",
+  "version": "1.0.0-pre.0",
+  "description": "Real-time log event monitor sidebar with filtering and CSV/JSON export",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "jest",
+    "yalc:publish": "npm run build && yalc publish"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^14.3.1",
+    "@types/jest": "^29.5.0",
+    "@types/react": "^18.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.3.1",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.1.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/concord-consortium/log-monitor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/concord-consortium/log-monitor/issues"
+  },
+  "homepage": "https://github.com/concord-consortium/log-monitor#readme",
+  "license": "MIT"
+}
