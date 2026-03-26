@@ -1,0 +1,42 @@
+name: Continuous Integration
+
+on: push
+
+jobs:
+  build_test:
+    name: Build and Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Run Tests
+        run: npm test -- --runInBand
+  s3-deploy:
+    name: S3 Deploy
+    needs:
+      - build_test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Install Dependencies
+        run: npm ci
+      - uses: concord-consortium/s3-deploy-action@v1
+        with:
+          bucket: models-resources
+          prefix: log-monitor
+          build: npx vite build
+          folderToDeploy: demo/dist
+          awsAccessKeyId: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          awsSecretAccessKey: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          topBranches: |
+            ["master"]
