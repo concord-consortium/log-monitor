@@ -117,10 +117,19 @@ To test changes in a consuming app locally:
 npm run build && yalc push
 ```
 
+## Deployment
+
+Every push to `master` triggers a GitHub Actions workflow that builds and deploys the demo app to S3.
+
+**Live demo:** https://models-resources.concord.org/log-monitor/branch/master/
+
+NOTE: Publishing to npm is a separate step.  It is not automatically done as part of the deployment process.
+
 ## Publishing
 
 1. Update the `version` constant in `src/index.ts` and `version` in `package.json`
-2. Run `npm publish`
+2. Run `npm install` to update `package-lock.json`
+3. Run `npm publish` to publish
 
 The `prepublishOnly` script automatically runs the build before publishing.
 
