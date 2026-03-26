@@ -72,6 +72,20 @@ const CSS = `
 
 /* --- Header --- */
 
+.log-monitor-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: var(--lm-text);
+}
+
+.log-monitor-version {
+  color: var(--lm-text-muted);
+  font-size: 11px;
+}
+
 .log-monitor-header {
   padding: 8px;
   border-bottom: 1px solid var(--lm-border);
@@ -150,9 +164,13 @@ const CSS = `
   position: relative;
 }
 
+.log-monitor-payload-empty .log-monitor-copy-btn {
+  top: 2px;
+}
+
 .log-monitor-copy-btn {
   position: absolute;
-  top: 8px;
+  top: 4px;
   right: 4px;
   cursor: pointer;
   color: var(--lm-text-muted);

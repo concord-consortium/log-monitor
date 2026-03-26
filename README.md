@@ -92,11 +92,37 @@ npm test
 npm run build
 ```
 
+### Demo
+
+An internal demo app is included for developing and testing the LogMonitor component in isolation:
+
+```bash
+npm run demo
+```
+
+This starts a Vite dev server with a control panel that lets you:
+
+- Select **payload size** (none, small, medium, large) to test the payload viewer at different data volumes
+- Send events with **short, medium, or long event names** to test name layout/truncation
+- Set the **number of events** to send in a batch and the **delay** between them
+- Toggle **light/dark theme**
+
+The demo is excluded from the published npm package (`"files": ["dist"]`) and from the library's TypeScript build.
+
+### Testing in a consuming app
+
 To test changes in a consuming app locally:
 
 ```bash
 npm run build && yalc push
 ```
+
+## Publishing
+
+1. Update the `version` constant in `src/index.ts` and `version` in `package.json`
+2. Run `npm publish`
+
+The `prepublishOnly` script automatically runs the build before publishing.
 
 ## Requirements
 

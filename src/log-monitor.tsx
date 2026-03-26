@@ -1,5 +1,6 @@
 import * as React from "react";
 import { onLogEvent, LogEntry } from "./log-monitor-utils";
+import { version } from "./index";
 import { injectStyles } from "./log-monitor-styles";
 
 // --- Export Helpers ---
@@ -257,6 +258,10 @@ export const LogMonitor: React.FC<LogMonitorProps> = ({
       onMouseLeave={e => e.stopPropagation()}
     >
       <div className="log-monitor-header">
+        <div className="log-monitor-title-bar">
+          <strong>Log Monitor</strong>
+          <span className="log-monitor-version">{version}</span>
+        </div>
         <input
           className="log-monitor-filter"
           type="text"
@@ -299,7 +304,7 @@ export const LogMonitor: React.FC<LogMonitorProps> = ({
               </span>
             </div>
             {expandedIds.has(entry.id) && (
-              <div className="log-monitor-payload-wrapper">
+              <div className={`log-monitor-payload-wrapper${entry.data ? "" : " log-monitor-payload-empty"}`}>
                 <CopyButton
                   text={JSON.stringify(entry, null, 2)}
                 />
