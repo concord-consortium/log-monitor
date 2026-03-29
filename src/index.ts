@@ -1,4 +1,4 @@
-export const version = "1.0.0-pre.1";
+export const version = "1.0.0";
 
 export { LogMonitor } from "./log-monitor";
 export type { LogMonitorProps } from "./log-monitor";

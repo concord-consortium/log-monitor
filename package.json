@@ -1,6 +1,6 @@
 {
   "name": "@concord-consortium/log-monitor",
-  "version": "1.0.0-pre.1",
+  "version": "1.0.0",
   "description": "Real-time log event monitor sidebar with filtering and CSV/JSON export",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
